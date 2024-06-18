@@ -1,0 +1,1 @@
+export const FETCH_ALL_ADMINS = "FETCH_ALL_ADMINS"
