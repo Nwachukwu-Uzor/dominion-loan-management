@@ -1,5 +1,4 @@
 import { Container, DashboardCard, PageTitle } from "@/components/shared";
-import React from "react";
 
 const Dashboard = () => {
   return (
