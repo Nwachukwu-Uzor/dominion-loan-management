@@ -188,12 +188,12 @@ const AdminSignUp = () => {
             </div>
           </form>
           <p className="mt-5 text-sm">
-            Yet to create an account?{" "}
+            Already have an account?{" "}
             <Link
-              to="/auth/signup"
+              to="/auth/login"
               className="text-primary font-medium hover:opacity-80 duration-200"
             >
-              Sign up
+              Login
             </Link>
           </p>
         </>

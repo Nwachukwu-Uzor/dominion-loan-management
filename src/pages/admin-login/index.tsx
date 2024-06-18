@@ -51,7 +51,6 @@ const AdminLogin = () => {
     try {
       // console.log("Here");
       const response = await authService.login(values);
-      console.log(response);
       if (response.payload) {
         sessionStorage.setItem(SESSION_STORAGE_KEY, response.payload);
         navigate("/");

@@ -22,6 +22,7 @@ import { AdminService } from "@/services";
 import { useQuery } from "@tanstack/react-query";
 import { ClipLoader } from "react-spinners";
 import { Pagination } from "@/components/shared/pagination";
+import { useRoleAccess } from "@/hooks";
 
 const ADMIN_STATUS = {
   PENDING: "PENDING",
@@ -65,7 +66,10 @@ const INITIAL_CONFIG = {
   totalPages: 0,
 };
 
+const SUPER_ADMIN = "superAdmin";
+
 const Admins = () => {
+  useRoleAccess(SUPER_ADMIN);
   const token = sessionStorage.getItem(SESSION_STORAGE_KEY);
   const adminService = new AdminService(token);
   const [pageConfig, setPageConfig] = useState(INITIAL_CONFIG);

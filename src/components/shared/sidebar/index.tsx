@@ -19,18 +19,23 @@ import { MdAdminPanelSettings, MdDashboard } from "react-icons/md";
 import { CgTranscript } from "react-icons/cg";
 
 import logo from "@/assets/images/logo.jpeg";
-// import { NOTIFY_TOKEN_SESSION_STORAGE_KEY } from "@/constants";
+import { SESSION_STORAGE_KEY } from "@/constants";
 import { toast } from "react-toastify";
 import { LogOutIcon } from "lucide-react";
-// import { useUser } from "@/hooks";
+import { useUser } from "@/hooks";
 
 type Props = {
   open: boolean;
   handleToggleSidebar: () => void;
 };
+
+const SUPER_ADMIN = "superAdmin";
+
 export const Sidebar: React.FC<Props> = ({ open, handleToggleSidebar }) => {
   const navigate = useNavigate();
-  //   const { user } = useUser();
+  const { user } = useUser();
+  console.log(user);
+  
 
   const onLinkClick = () => {
     if (window.innerWidth > 768) {
@@ -52,16 +57,24 @@ export const Sidebar: React.FC<Props> = ({ open, handleToggleSidebar }) => {
       path: "/requests",
       icon: <CgTranscript />,
     },
-    {
-      id: 3,
-      title: "Admins",
-      path: "/admins",
-      icon: <MdAdminPanelSettings />,
-    },
   ];
 
+  if (user) {
+    const transformedRoles = user.role.map((role) => role.toUpperCase());
+  
+    
+    if (transformedRoles.includes(SUPER_ADMIN.toUpperCase())) {
+      menuItems.push({
+        id: 3,
+        title: "Admins",
+        path: "/admins",
+        icon: <MdAdminPanelSettings />,
+      });
+    }
+  }
+
   const handleLogout = () => {
-    // sessionStorage.removeItem(NOTIFY_TOKEN_SESSION_STORAGE_KEY);
+    sessionStorage.removeItem(SESSION_STORAGE_KEY);
     toast.success("Logout successful..");
     navigate("/auth/login");
   };

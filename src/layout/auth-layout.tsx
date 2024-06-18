@@ -21,7 +21,7 @@ export const AuthLayout = () => {
         />
         <article className="w-full">
           <h2 className="scroll-m-20 text-3xl font-bold tracking-tight mb-12">
-            Report Portal
+            Loan Repayment Information Portal
           </h2>
           <div className="mt-2">
             <Outlet />

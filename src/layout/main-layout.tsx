@@ -2,22 +2,22 @@ import React, { useState } from "react";
 import { Sidebar, Container } from "@/components/shared";
 import { Outlet } from "react-router-dom";
 import { HamburgerMenuIcon, Cross1Icon } from "@radix-ui/react-icons";
-// import { useUser } from "@/hooks";
+import { useUser } from "@/hooks";
+import { ClipLoader } from "react-spinners";
 // import { ClipLoader } from "react-spinners";
 
 export const MainLayout = () => {
-  // const { isLoading } = useUser();
+  const { isLoading } = useUser();
   const [open, setOpen] = useState(window.innerWidth > 768);
   const handleToggleSidebar = () => {
     setOpen((open) => !open);
   };
 
-  return (
-  // isLoading ? (
-  //   <section className="h-screen flex items-center justify-center">
-  //     <ClipLoader size={20} color="#fde047" />
-  //   </section>
-  // ) : (
+  return isLoading ? (
+    <section className="h-screen flex items-center justify-center">
+      <ClipLoader size={20} color="#fde047" />
+    </section>
+  ) : (
     <main className="flex relative">
       <div className="w-fit">
         <Sidebar open={open} handleToggleSidebar={handleToggleSidebar} />
