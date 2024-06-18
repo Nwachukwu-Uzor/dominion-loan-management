@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Container, NonPaginatedTable, PageTitle } from "@/components/shared";
 import { AdminType } from "@/types/shared";
 import { ColumnDef } from "@tanstack/react-table";

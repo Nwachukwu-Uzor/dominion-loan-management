@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Sidebar, Container } from "@/components/shared";
 import { Outlet } from "react-router-dom";
 import { HamburgerMenuIcon, Cross1Icon } from "@radix-ui/react-icons";

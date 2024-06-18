@@ -1,4 +1,3 @@
-import React from "react";
 import { Outlet } from "react-router-dom";
 import logo from "@/assets/images/logo.jpeg";
 import authIllustration from "@/assets/images/auth-bg.jpg";
