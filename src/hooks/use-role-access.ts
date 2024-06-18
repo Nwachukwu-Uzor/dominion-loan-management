@@ -7,9 +7,7 @@ import { toast } from "react-toastify";
 export const useRoleAccess = (role: string) => {
   const navigate = useNavigate();
   useEffect(() => {
-    const dataFromSession = sessionStorage.getItem(
-      SESSION_STORAGE_KEY
-    );
+    const dataFromSession = sessionStorage.getItem(SESSION_STORAGE_KEY);
 
     if (!dataFromSession) {
       toast.error("Authorized, please login", {
@@ -19,13 +17,13 @@ export const useRoleAccess = (role: string) => {
       return;
     }
     const user = decodeAuthToken(dataFromSession);
-    const transformedRoles = user.role.map(role => role.toUpperCase())
+    const transformedRoles = user.role.map((role) => role.toUpperCase());
     if (transformedRoles.includes(role.toUpperCase())) {
       return;
     }
     toast.warn("You do not have permission to access this page.", {
       toastId: "no-permission-33292",
     });
-    navigate("/transactions");
+    navigate("/");
   }, [navigate, role]);
 };
