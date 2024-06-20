@@ -9,7 +9,7 @@ import { dummyLoans } from "@/data/";
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { IoEye } from "react-icons/io5";
-import { FaPlus } from "react-icons/fa";
+
 import {
   formatNumberWithCommas,
   getDaysFromToday,
