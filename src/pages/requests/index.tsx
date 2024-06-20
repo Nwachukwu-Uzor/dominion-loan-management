@@ -152,7 +152,7 @@ const Requests = () => {
       accessorKey: "id",
       cell: ({ getValue }) => (
         <Link
-          to={`/requests/${getValue()}`}
+          to={`/bulk-notifications/${getValue()}`}
           className="text-primary relative group w-fit font-bold text-sm flex items-center justify-center gap-0.5 hover:opacity-85"
         >
           <IoEye /> Details
@@ -186,12 +186,12 @@ const Requests = () => {
   return (
     <Container>
       <Link
-        to="/requests/new"
-        className="max-w-[100px] gap-1 rounded-md active:scale-75 hover:opacity-60 duration-150 text-sm py-1.5 px-1 mb-2 flex items-center justify-center ml-auto bg-black text-white"
+        to="/bulk-notifications/new"
+        className="max-w-[180px] gap-1 rounded-md active:scale-75 hover:opacity-60 duration-150 py-1.5 px-1 mb-4 flex items-center justify-center ml-auto bg-black text-white text-xs font-bold"
       >
-        <FaPlus /> New
+        <FaPlus /> New Bulk Notifications
       </Link>
-      <PageTitle title="Requests" />
+      <PageTitle title="Bulk Notifications" />
       <Card className="my-2">
         <form
           className="flex my-2 flex-col lg:flex-row gap-3 lg:gap-2 justify-between items-start lg:items-center"

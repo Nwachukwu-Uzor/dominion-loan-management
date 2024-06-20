@@ -20,7 +20,7 @@ const router = createBrowserRouter([
         element: <DashboardPage />,
       },
       {
-        path: "/requests",
+        path: "/bulk-notifications",
         children: [
           {
             index: true,
@@ -37,7 +37,7 @@ const router = createBrowserRouter([
         ],
       },
       {
-        path: "admins",
+        path: "users",
         element: <AdminPage />,
       },
     ],

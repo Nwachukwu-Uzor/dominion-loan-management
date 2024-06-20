@@ -34,7 +34,6 @@ const SUPER_ADMIN = "superAdmin";
 export const Sidebar: React.FC<Props> = ({ open, handleToggleSidebar }) => {
   const navigate = useNavigate();
   const { user } = useUser();
-  console.log(user);
   
 
   const onLinkClick = () => {
@@ -53,8 +52,8 @@ export const Sidebar: React.FC<Props> = ({ open, handleToggleSidebar }) => {
     },
     {
       id: 2,
-      title: "Requests",
-      path: "/requests",
+      title: "Bulk Notifications",
+      path: "/bulk-notifications",
       icon: <CgTranscript />,
     },
   ];
@@ -66,8 +65,8 @@ export const Sidebar: React.FC<Props> = ({ open, handleToggleSidebar }) => {
     if (transformedRoles.includes(SUPER_ADMIN.toUpperCase())) {
       menuItems.push({
         id: 3,
-        title: "Admins",
-        path: "/admins",
+        title: "Users",
+        path: "/users",
         icon: <MdAdminPanelSettings />,
       });
     }

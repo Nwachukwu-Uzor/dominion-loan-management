@@ -11,14 +11,16 @@ type Props = {
   count: number;
   title: string;
   theme?: keyof typeof themes;
+  icon: React.ReactNode
 };
-export const DashboardCard: React.FC<Props> = ({ count, title, theme }) => {
+export const DashboardCard: React.FC<Props> = ({ count, title, theme, icon }) => {
   return (
     <Card
       className={`min-h-[20vh] items-center flex border-0 ${theme && themes[theme]}`}
     >
       <div className="font-bold">
-        <h2 className="text-2xl mb-1">{count}</h2>
+        {icon}
+        <h2 className="text-2xl lg:text-3xl my-1">{count}</h2>
         <h3 className="text-lg">{title}</h3>
       </div>
     </Card>

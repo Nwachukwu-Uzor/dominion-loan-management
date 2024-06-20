@@ -182,7 +182,7 @@ const Admins = () => {
   return (
     <>
       <Container>
-        <PageTitle title="Admins" />
+        <PageTitle title="Users" />
         <Card className="my-2">
           <div
             className="flex my-2 flex-col lg:flex-row gap-3 lg:gap-2 justify-between items-start lg:items-center"

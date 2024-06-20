@@ -187,13 +187,13 @@ const Requests = () => {
   };
   return (
     <Container>
-      <Link
+      {/* <Link
         to="/requests/new"
         className="max-w-[100px] gap-1 rounded-md active:scale-75 hover:opacity-60 duration-150 text-sm py-1.5 px-1 mb-2 flex items-center justify-center ml-auto bg-black text-white"
       >
         <FaPlus /> New
-      </Link>
-      <PageTitle title="Loan Requests" />
+      </Link> */}
+      <PageTitle title="Bulk Notification Details" />
       <Card className="my-2">
         <form
           className="flex my-2 flex-col lg:flex-row gap-3 lg:gap-2 justify-between items-start lg:items-center"
