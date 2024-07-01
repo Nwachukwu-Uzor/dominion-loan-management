@@ -23,20 +23,22 @@ export const DashboardPage = () => (
   </Suspense>
 );
 
-// Requests
-const RequestsComponent = lazy(() => import("./requests"));
+// Bulk Notifications
+const BulkNotificationsComponent = lazy(() => import("./bulk-notifications"));
 
-export const RequestsPage = () => (
+export const BulkNotificationsPage = () => (
   <Suspense fallback={<h2>Loading...</h2>}>
-    <RequestsComponent />
+    <BulkNotificationsComponent />
   </Suspense>
 );
 
-// New Request
-const NewRequestComponent = lazy(() => import("./new-request"));
-export const NewRequestPage = () => (
+// New Bulk Notification
+const NewBulkNotificationComponent = lazy(
+  () => import("./new-bulk-notification")
+);
+export const NewBulkNotificationPage = () => (
   <Suspense fallback={<h2>Loading...</h2>}>
-    <NewRequestComponent />
+    <NewBulkNotificationComponent />
   </Suspense>
 );
 
@@ -55,5 +57,13 @@ const AdminComponent = lazy(() => import("./admins"));
 export const AdminPage = () => (
   <Suspense fallback={<h2>Loading...</h2>}>
     <AdminComponent />
+  </Suspense>
+);
+
+// Accounts
+const AccountsComponent = lazy(() => import("./accounts"));
+export const AccountsPage = () => (
+  <Suspense fallback={<h2>Loading...</h2>}>
+    <AccountsComponent />
   </Suspense>
 );

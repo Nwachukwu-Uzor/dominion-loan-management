@@ -9,7 +9,6 @@ import { dummyRequests } from "@/data/";
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { IoEye } from "react-icons/io5";
-import { FaPlus } from "react-icons/fa";
 import {
   formatNumberWithCommas,
   generateTransactionStatusStyle,
@@ -97,7 +96,7 @@ const STATUS_OPTIONS = [
   },
 ];
 
-const Requests = () => {
+const BulkNotifications = () => {
   const {
     register,
     setError,
@@ -187,9 +186,9 @@ const Requests = () => {
     <Container>
       <Link
         to="/bulk-notifications/new"
-        className="max-w-[180px] gap-1 rounded-md active:scale-75 hover:opacity-60 duration-150 py-1.5 px-1 mb-4 flex items-center justify-center ml-auto bg-black text-white text-xs font-bold"
+        className="max-w-[180px] gap-1 rounded-md active:scale-75 hover:opacity-60 duration-150 py-2 px-1 mb-4 flex items-center justify-center ml-auto bg-[#7E21CF] text-white text-xs font-medium"
       >
-        <FaPlus /> New Bulk Notifications
+        New Bulk Notifications
       </Link>
       <PageTitle title="Bulk Notifications" />
       <Card className="my-2">
@@ -249,4 +248,4 @@ const Requests = () => {
   );
 };
 
-export default Requests;
+export default BulkNotifications;

@@ -1,0 +1,26 @@
+export type ProfileType = {
+  id: string;
+  profileId: string;
+  LastName: string;
+  OtherNames: string;
+  BVN: string;
+  PhoneNo: string;
+  Gender: string;
+  PlaceOfBirth: string;
+  DateOfBirth: string;
+  Address: string;
+  NationalIdentityNo: string;
+  NextOfKinPhoneNo: string;
+  NextOfKinName: string;
+  ReferralPhoneNo: string;
+  ReferralName: string;
+  Email: string;
+  CustomerImage: string;
+  loanAgreement: string;
+  organizationEmployer: string;
+  ippisNumber: string;
+  loanTenor: string;
+  loanAmount: string;
+  createdAt: string;
+  updatedAt: string;
+};

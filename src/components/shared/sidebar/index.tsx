@@ -1,13 +1,4 @@
 import React from "react";
-// import {
-//   AccountsIcon,
-//   DashboardIcon,
-//   LogoutIcon,
-//   SettingsIcon,
-//   UsersIcon,
-// } from "../svg-icons";
-// import { ReceiptIcon } from "../svg-icons/receipt-icon";
-
 import {
   Tooltip,
   TooltipContent,
@@ -15,14 +6,15 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { NavLink, useNavigate } from "react-router-dom";
-import { MdAdminPanelSettings, MdDashboard } from "react-icons/md";
-import { CgTranscript } from "react-icons/cg";
+import { MdDashboard, MdSavings } from "react-icons/md";
+import { HiUsers } from "react-icons/hi2";
 
-import logo from "@/assets/images/logo.jpeg";
+import logo from "@/assets/images/dominion-logo.svg";
 import { SESSION_STORAGE_KEY } from "@/constants";
 import { toast } from "react-toastify";
 import { LogOutIcon } from "lucide-react";
 import { useUser } from "@/hooks";
+import { IoNotificationsCircleOutline } from "react-icons/io5";
 
 type Props = {
   open: boolean;
@@ -34,7 +26,6 @@ const SUPER_ADMIN = "superAdmin";
 export const Sidebar: React.FC<Props> = ({ open, handleToggleSidebar }) => {
   const navigate = useNavigate();
   const { user } = useUser();
-  
 
   const onLinkClick = () => {
     if (window.innerWidth > 768) {
@@ -54,20 +45,25 @@ export const Sidebar: React.FC<Props> = ({ open, handleToggleSidebar }) => {
       id: 2,
       title: "Bulk Notifications",
       path: "/bulk-notifications",
-      icon: <CgTranscript />,
+      icon: <IoNotificationsCircleOutline />,
     },
   ];
 
   if (user) {
     const transformedRoles = user.role.map((role) => role.toUpperCase());
-  
-    
+
     if (transformedRoles.includes(SUPER_ADMIN.toUpperCase())) {
       menuItems.push({
         id: 3,
         title: "Users",
         path: "/users",
-        icon: <MdAdminPanelSettings />,
+        icon: <HiUsers />,
+      });
+      menuItems.push({
+        id: 3,
+        title: "Accounts",
+        path: "/accounts",
+        icon: <MdSavings />,
       });
     }
   }
@@ -80,12 +76,12 @@ export const Sidebar: React.FC<Props> = ({ open, handleToggleSidebar }) => {
 
   return (
     <aside
-      className={`bg-primary h-screen  ${
+      className={`bg-[#2D2D2D] h-screen  ${
         open ? "lg:w-72 " : "lg:w-20"
       } duration-300 overflow-y-auto no-scrollbar`}
     >
       <nav
-        className={`bg-primary fixed pt-8 lg:left-0 top-0 bottom-0 z-20 ${
+        className={`bg-[#2D2D2D] fixed pt-8 lg:left-0 top-0 bottom-0 z-20 ${
           open ? "w-72 " : "w-0 -left-20 lg:block lg:w-20"
         } duration-300 flex flex-col gap-10`}
       >
@@ -116,7 +112,7 @@ export const Sidebar: React.FC<Props> = ({ open, handleToggleSidebar }) => {
                       open ? "" : "lg:justify-center"
                     } flex items-center gap-x-4 text-sm cursor-pointer hover:opacity-80 p-2 pl-5 ${
                       isActive
-                        ? "bg-white text-primary"
+                        ? "text-primary bg-white lg:bg-transparent lg:border-l-[6px] lg:border-l-primary"
                         : "bg-transparent text-white"
                     }`
                   }
@@ -147,37 +143,39 @@ export const Sidebar: React.FC<Props> = ({ open, handleToggleSidebar }) => {
               </li>
             ))}
           </ul>
-          <button
-            onClick={handleLogout}
-            className={`flex items-center justify-start p-1 pl-5 gap-1 text-white w-full absolute bottom-16 font-bold ${
-              open ? "" : "lg:justify-center"
-            }`}
-          >
-            <TooltipProvider>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <span>
-                    <LogOutIcon />
-                  </span>
-                </TooltipTrigger>
-                <TooltipContent
-                  side="left"
-                  sideOffset={open ? 250 : 35}
-                  className="bg-white shadow-sm text-black"
-                  arrowPadding={4}
-                >
-                  <p className="text-sm font-normal">Logout</p>
-                </TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
-            <span
-              className={` text-base ${
-                open ? "scale-1 w-auto" : "scale-0 w-0"
+          <div className="w-full absolute bottom-6 border-t-2 border-t-white pt-2">
+            <button
+              onClick={handleLogout}
+              className={`flex items-center justify-start p-1 pl-5 gap-1 text-white w-full font-bold ${
+                open ? "" : "lg:justify-center"
               }`}
             >
-              Logout
-            </span>
-          </button>
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <span>
+                      <LogOutIcon />
+                    </span>
+                  </TooltipTrigger>
+                  <TooltipContent
+                    side="left"
+                    sideOffset={open ? 250 : 35}
+                    className="bg-white shadow-sm text-black"
+                    arrowPadding={4}
+                  >
+                    <p className="text-sm font-normal">Logout</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+              <span
+                className={` text-base ${
+                  open ? "scale-1 w-auto" : "scale-0 w-0"
+                }`}
+              >
+                Logout
+              </span>
+            </button>
+          </div>
         </div>
       </nav>
     </aside>

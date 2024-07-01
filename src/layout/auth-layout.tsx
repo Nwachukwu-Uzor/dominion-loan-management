@@ -1,30 +1,32 @@
 import { Outlet } from "react-router-dom";
-import logo from "@/assets/images/logo.jpeg";
-import authIllustration from "@/assets/images/auth-bg.jpg";
+import logo from "@/assets/images/dominion-logo.svg";
+import authIllustration from "@/assets/images/background-img.jpeg";
+import { Card } from "@/components/ui/card";
 
 export const AuthLayout = () => {
   return (
-    <main className="grid grid-cols-1 lg:grid-cols-2">
-      <section className="hidden lg:flex justify-center items-center min-h-screen">
+    <main>
+      <section className="flex justify-center items-center min-h-screen relative">
         <img
           src={authIllustration}
           alt="Auth"
-          className="w-full h-screen object-center inline-block"
+          className="w-full object-center inline-block absolute inset-0"
         />
-      </section>
-      <section className="min-h-screen flex items-center justify-center w-[95%] mx-auto max-w-[400px]">
-        <img
-          src={logo}
-          alt="Auth"
-          className="absolute top-4 right-4 h-6 lg:h-12"
-        />
-        <article className="w-full">
-          <h2 className="scroll-m-20 text-3xl font-bold tracking-tight mb-12">
-            Loan Management System
-          </h2>
-          <div className="mt-2">
-            <Outlet />
-          </div>
+        <div className="absolute inset-0 bg-[#7E21CF] opacity-60"></div>
+        <article className="min-h-screen flex items-center justify-center w-[95%] mx-auto max-w-[400px] relative z-30">
+          <Card className="w-full rounded">
+            <img
+              src={logo}
+              alt="Auth"
+              className="block mx-auto my-2 h-4 lg:h-8"
+            />
+            {/* <h2 className="scroll-m-20 text-3xl font-bold tracking-tight mb-12">
+              Loan Management System
+            </h2> */}
+            <div className="mt-6">
+              <Outlet />
+            </div>
+          </Card>
         </article>
       </section>
     </main>

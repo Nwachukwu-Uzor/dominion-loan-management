@@ -3,10 +3,11 @@ import {
   DashboardPage,
   AdminLoginPage,
   AdminSignUpPage,
-  RequestsPage,
-  NewRequestPage,
+  BulkNotificationsPage,
+  NewBulkNotificationPage,
   SingleRequestPage,
   AdminPage,
+  AccountsPage,
 } from "./pages";
 import { AuthLayout, MainLayout } from "./layout";
 
@@ -20,15 +21,19 @@ const router = createBrowserRouter([
         element: <DashboardPage />,
       },
       {
+        path: "/accounts",
+        element: <AccountsPage />,
+      },
+      {
         path: "/bulk-notifications",
         children: [
           {
             index: true,
-            element: <RequestsPage />,
+            element: <BulkNotificationsPage />,
           },
           {
             path: "new",
-            element: <NewRequestPage />,
+            element: <NewBulkNotificationPage />,
           },
           {
             path: ":id",

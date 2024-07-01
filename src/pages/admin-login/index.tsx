@@ -75,10 +75,12 @@ const AdminLogin = () => {
 
   return (
     <article>
-      <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+      <h3 className="scroll-m-20 text-xl text-center font-semibold tracking-tight">
         Login
       </h3>
-      <p className="leading-7 mt-1 text-sm">Enter your valid credentials</p>
+      <p className="leading-7 mt-1 text-sm text-center">
+        Enter your valid credentials
+      </p>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col gap-4 mt-7 mb-1">
           <Input
@@ -106,7 +108,7 @@ const AdminLogin = () => {
           />
           <Link
             to="/auth/forgot-password/account-number"
-            className="mt-0.5 text-primary text-xs group font-medium duration-200 relative w-fit"
+            className="mt-0.5 text-primary text-xs group font-medium duration-200 relative w-fit text-center"
           >
             Forgot Password?{" "}
             <span className="absolute -bottom-0.5 left-0 w-0 group-hover:w-full duration-200 h-0.5 bg-primary"></span>
@@ -129,13 +131,14 @@ const AdminLogin = () => {
           </Button>
         </div>
       </form>
-      <p className="mt-5 text-sm">
+      <p className="mt-8 lg:mt-16 text-xs text-center">
         Yet to create an account?{" "}
         <Link
           to="/auth/signup"
-          className="text-primary font-medium hover:opacity-80 duration-200"
+          className="text-primary font-medium hover:opacity-80 duration-200 relative group"
         >
           Sign up
+          <span className="absolute -bottom-0.5 left-0 w-0 group-hover:w-full duration-200 h-0.5 bg-primary"></span>
         </Link>
       </p>
     </article>

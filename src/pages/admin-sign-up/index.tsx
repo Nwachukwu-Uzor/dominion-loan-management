@@ -105,10 +105,10 @@ const AdminSignUp = () => {
         </div>
       ) : (
         <>
-          <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+          <h3 className="scroll-m-20 text-xl text-center font-semibold tracking-tight">
             Signup
           </h3>
-          <p className="leading-7 mt-1 text-sm">
+          <p className="leading-7 mt-1 text-sm text-center">
             Please provide your credentials...
           </p>
           <form onSubmit={handleSubmit(onSubmit)}>
@@ -161,13 +161,7 @@ const AdminSignUp = () => {
                 error={errors?.confirmPassword?.message}
                 disabled={isSubmitting}
               />
-              <Link
-                to="/auth/forgot-password/account-number"
-                className="mt-0.5 text-primary text-xs group font-medium duration-200 relative w-fit"
-              >
-                Forgot Password?{" "}
-                <span className="absolute -bottom-0.5 left-0 w-0 group-hover:w-full duration-200 h-0.5 bg-primary"></span>
-              </Link>
+
               <div className="flex flex-col gap-0.5">
                 {errors?.root?.message?.split(";").map((error) => (
                   <p key={error} className="text-sm text-red-500">
@@ -187,13 +181,14 @@ const AdminSignUp = () => {
               </Button>
             </div>
           </form>
-          <p className="mt-5 text-sm">
+          <p className="text-xs mt-6 lg:mt-16 text-center">
             Already have an account?{" "}
             <Link
               to="/auth/login"
-              className="text-primary font-medium hover:opacity-80 duration-200"
+              className="text-primary font-medium hover:opacity-80 duration-200 relative group"
             >
               Login
+              <span className="absolute -bottom-0.5 left-0 w-0 group-hover:w-full duration-200 h-0.5 bg-primary"></span>
             </Link>
           </p>
         </>
